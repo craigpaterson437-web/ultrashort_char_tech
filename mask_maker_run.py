@@ -37,6 +37,10 @@ def select_output():
     path = filedialog.askdirectory()
     output_entry.delete(0, tk.END)
     output_entry.insert(0, path)
+def select_output_trans():
+    path = filedialog.askdirectory()
+    output_entry_trans.delete(0, tk.END)
+    output_entry_trans.insert(0, path)
 
 def display_figure(fig):
 
@@ -70,7 +74,7 @@ def run():
                 lambda_c = int(center_entry.get())
                 slm_size = int(slm_entry.get())
                 bandwidth = int(sigma_entry.get())
-                output_dir = output_entry.get()
+                output_dir = output_entry_trans.get()
                 
 
             except ValueError:
@@ -120,13 +124,13 @@ tk.Radiobutton(root, text="Phase Mask",
                variable=mode_var,
                value="phase",
                command=lambda: update_ui(),
-               bg="green", fg="white").grid(row=0, column=1)
+               bg="green", fg="black").grid(row=0, column=1)
 
 tk.Radiobutton(root, text="Trans Mask",
                variable=mode_var,
                value="trans",
                command=lambda: update_ui(),
-               bg="green", fg="white").grid(row=0, column=2)
+               bg="green", fg="black").grid(row=0, column=2)
 
 phase_frame = tk.Frame(root)
 phase_frame.grid(row=1, column=0, columnspan=3)
@@ -181,9 +185,9 @@ center_entry = tk.Entry(trans_frame, width=20)
 center_entry.grid(row=3, column=1)
 
 tk.Label(trans_frame, text="Save Folder").grid(row=4, column=0)
-output_entry = tk.Entry(trans_frame, width=20)
-output_entry.grid(row=4, column=1)
-tk.Button(trans_frame, text="Browse", command=select_output).grid(row=4, column=2)
+output_entry_trans = tk.Entry(trans_frame, width=20)
+output_entry_trans.grid(row=4, column=1)
+tk.Button(trans_frame, text="Browse", command=select_output_trans).grid(row=4, column=2)
 
 tk.Button(trans_frame, text="Create Gaussian Mask",
           command=run,

@@ -142,7 +142,7 @@ def create_trans_mask(lambda_c, lambda_width, slm_size, bandwidth, save_folder):
     
 def make_the_gaussian(lambda_c, slm_size, bandwidth, save_folder, Display = None):
 
-    fundamental_file =r'/Users/craigpaterson/Library/CloudStorage/OneDrive-UniversityofGlasgow/5th Year/Project Data/redspex.txt'
+    fundamental_file = r"C:\MIIPSv2\globalfiles\redspex.txt"
     loaded_file = np.loadtxt(fundamental_file)
 
     waves = loaded_file[:,0]

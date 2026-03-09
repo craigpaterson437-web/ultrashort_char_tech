@@ -94,7 +94,7 @@ def run():
 
 
             messagebox.showinfo("Success", "Processing completed!")
-            
+          
         elif mode == "no plot":
         
             input_dir = input_entry_no_plot.get()
@@ -117,12 +117,12 @@ def run():
 
 
 def update_ui():
-    if mode_var.get() == "plot":
+    if mode_var.get() == "no plot":
         noplot_frame.grid_remove()
-        plot_frame.grid()
-    else:  # trans mode
-        plot_frame.grid_remove()
         noplot_frame.grid()
+    #else:  # trans mode
+     #   plot_frame.grid_remove()
+      #  noplot_frame.grid()
    
     
 root = tk.Tk()
@@ -132,20 +132,21 @@ root.title("IAC Temporal Width Recoverer")
 #icon = tk.PhotoImage(file=icon_path)
 #root.iconphoto(True, icon)
 mode_var = tk.StringVar(value="plot") 
-
+'''
 tk.Radiobutton(root, text="Plot Relationship",
                variable=mode_var,
                value="plot",
                command=lambda: update_ui(),
-               bg="green", fg="white").grid(row=0, column=1)
-
+               bg="green", fg="black").grid(row=0, column=1)
+'''
 tk.Radiobutton(root, text="Don't Plot Relationship",
                variable=mode_var,
                value="no plot",
                command=lambda: update_ui(),
-               bg="green", fg="white").grid(row=0, column=2)
-
-
+               bg="green", fg="black").grid(row=0, column=2)
+                                                                                                               
+               
+'''
 plot_frame = tk.Frame(root)
 plot_frame.grid(row=1, column =0 , columnspan =3)
 
@@ -161,7 +162,7 @@ output_entry_plot.grid(row=3, column=1)
 tk.Button(plot_frame, text="Browse", command=select_output_plot).grid(row=3, column=2)
 
 tk.Button(plot_frame, text="Recover", command=run, bg="green", fg="black").grid(row=4, column=1)
-
+'''
 noplot_frame = tk.Frame(root)
 noplot_frame.grid(row=1, column =0 , columnspan =3)
 

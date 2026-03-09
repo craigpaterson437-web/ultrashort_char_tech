@@ -56,7 +56,11 @@ def FROG_trace_folder(folder_path,save_folder_path, Relationship = None):
         if folder[x] == '.DS_Store':   # removal of pesky MacOS .DS_Store files. Thye should be remove through terminal but this is a final catch all 
             continue 
 
+        if folder[x].split('_')[-1] == '2d.txt':
+            continue
+
         name = os.path.splitext(folder[x])[0]
+        
         print(name)
         # Match numbers that are not part of a word (not next to letters)
         numbers = re.findall(r"(?<![A-Za-z])\d+(?![A-Za-z])", name)
@@ -145,7 +149,7 @@ def FROG_trace_folder(folder_path,save_folder_path, Relationship = None):
         plt.legend()
         title = 'SHG_IAC_trace_fit_GDD_'+str(GDD)+'.png'
         save_folder =os.path.join(save_folder_path,title)
-        plt.title('SHG IAC Trace Fit for GDD='+str(GDD)+'$fs^2$')
+        plt.title('SHG IAC Trace Fit for'+folder[x]+'')
         plt.savefig(save_folder)
         plt.show()
         plt.close()
